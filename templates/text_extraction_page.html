@@ -1,0 +1,90 @@
+{% extends "base.html" %} {% block content %}
+
+<!-- header section -->
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Invoice Processing Automation</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Extract the Required Fields</p>
+        </div>
+    </div>
+</header>
+<br />
+<br />
+
+<!-- conatiner start -->
+<div id="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 20px;
+  ">
+    <!-- Image Section -->
+
+    <section id="imageSection" style="max-width: 100%; height: auto; display: block; margin: 0 auto">
+        <img src="{{ img_file }}" alt="" style="border-radius: 8px; width: 350px; padding: 5px" />
+    </section>
+    {% if class_name == 'Invoices' %}
+    <!-- Text Section -->
+    <section id="textSection" style="display: flex; flex-direction: column; justify-content: center">
+        <h2>Select Fields For Text Extraction</h2>
+        <p>--------------------------------------------------------------------------</p>
+        {% for field,question in fields_questions_list_for_invoice.items %}
+        <br />
+        <form method="POST" action="{% url 'text_show_files' %}">
+            {% csrf_token %}
+
+            <div class="form-check" style="margin-left: 10%;">
+                <input class="form-check-input" type="checkbox" name="selected_fields" id="{{ field }}"
+                    value="{{ field }}">
+                <label class="form-check-label" for="{{ field }}">{{ field }}</label>
+
+                <br>
+                <!-- <input class="form-check-input" type="hidden" name="selected_question" id="{{ question }}" value="{{ question }}"> -->
+
+            </div>
+            {% endfor %}
+            <input type="hidden" name="img_file" value="{{ img_file }}" />
+            <input type="hidden" name="class_name" value="{{ class_name }}" />
+            <br>
+            <div class="container">
+                <div class="vertical-center">
+                    <button type="submit" class="btn btn-secondary">Extract Text</button>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <br>
+    </section>
+    {% elif class_name == 'Restaurant_Bill' %}
+    <section id="textSection" style="display: flex; flex-direction: column; justify-content: center">
+        <h2>Select Fields For Text Extraction</h2>
+        <p>--------------------------------------------------------------------------</p>
+        {% for field,question in fields_questions_list_for_bills.items %}
+        <br />
+        <form method="POST" action="{% url 'text_show_files' %}">
+            {% csrf_token %}
+
+            <div class="form-check" style="margin-left: 10%;">
+                <input class="form-check-input" type="checkbox" name="selected_fields" id="{{ field }}"
+                    value="{{ field }}">
+                <label class="form-check-label" for="{{ field }}">{{ field }}</label>
+
+                <br>
+                <!-- <input class="form-check-input" type="hidden" name="selected_question" id="{{ question }}" value="{{ question }}"> -->
+
+            </div>
+            {% endfor %}
+            <input type="hidden" name="img_file" value="{{ img_file }}" />
+            <input type="hidden" name="class_name" value="{{ class_name }}" />
+            <br>
+            <div class="container">
+                <div class="vertical-center">
+                    <button type="submit" class="btn btn-secondary">Extract Text</button>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <br>
+    </section>
+    {% endif %}
+    
+
+</div>
+{% endblock %}

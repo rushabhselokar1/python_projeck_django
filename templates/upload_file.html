@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block content %}
+
+<!-- header section starts-->
+<header class="bg-dark py-5">
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="text-center text-white">
+      <h1 class="display-4 fw-bolder">Invoice Processing Automation</h1>
+      <p class="lead fw-normal text-white-50 mb-0">
+        This is Invoice Classification page
+      </p>
+    </div>
+  </div>
+</header>
+<!-- header section ends-->
+<br />
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <!-- upload image code -->
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+    </div>
+    </div>
+  </div>
+</div>
+
+<br />
+
+{% endblock %}

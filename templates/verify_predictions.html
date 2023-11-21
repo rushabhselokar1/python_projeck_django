@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content  %}
+
+<!-- header section -->
+<header class='bg-dark py-5'>
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Invoice Processing Automation</h1>
+            <p class='lead fw-normal text-white-50 mb-0'>Verify Invoice Class Prediction</p>
+        </div>
+    </div>
+</header>
+<br>
+<br>
+<!-- for table display -->
+<div class="container" style="border: double;">
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">File Id</th>
+        <th scope="col">Uploaded Invoice Class</th>
+        <th scope="col">Predicted Invoice Class</th>
+        <th scope="col">Predicted Confidence</th>
+        <th scope="col">Uploaded At</th>
+        <th scope="col">Click to Extract Field</th>
+        <th scope="col">View File</th>        
+        
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>{{file.file_id}}</td>
+        <td>{{file.title}}</td>
+        <td>{{class_name}}</td>
+        <td>{{confidence_score}}</td>
+        <td>{{file.uploaded_at}}</td>
+        <td>
+          <form method="post" action="{% url 'text_extraction_page' %}">
+            {% csrf_token %}
+            <input type="hidden" name="img_file" value="{{ file.file.url }}" />
+            <!-- <p>{{ file.file.url }}</p> -->
+            <input type="hidden" name="class_name" value="{{ class_name }}" />
+            <button type="submit" class="btn btn-secondary">
+              Extract Fields
+            </button>
+          </form>
+        </td>
+
+
+        <td><a href="{{ file.file.url }}"  target="_blank">View Image </a></td>
+        <!-- <td>
+          <form action="{% url 'verify_predictions' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="imgFile" value="{{ file.file.url }}" />
+          </form>
+        </td> -->
+     
+      </tr>
+
+    </tbody>
+  </table>
+  <img src="{{ img_file }}" alt="" style="border-radius: 8px; width: 350px; padding: 5px" />
+  </div>
+  <br>
+  <br>
+{% endblock  %}

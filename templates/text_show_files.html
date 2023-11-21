@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- header section -->
+<header class='bg-dark py-5'>
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Invoice Processing Automation</h1>
+            <p class='lead fw-normal text-white-50 mb-0'>Invoice Extracted Data</p>
+        </div>
+    </div>
+</header>
+
+<!-- conatiner start -->
+<div id="container" style="
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+  ">
+    <!-- Image Section -->
+
+    <section id="imageSection" style="max-width: 100%; height: auto; display: block; margin: 0 auto">
+        <img src="{{ img_file }}" alt="" style="border-radius: 8px; width: 350px; padding: 5px" />
+
+    </section>
+
+    <!-- Text Section -->
+    <section id="textSection" style="display: flex; flex-direction: column; justify-content: center">
+        <h2>Extracted Fields</h2>
+        <p>------------------------------------</p>
+
+        <!-- <p>{{ extracted_data }}</p> -->
+
+        <div class="container" style="border: double;">
+            <table class="table">
+              <thead class="thead-dark">
+              <tr>
+                <th scope="col">Selected Field</th>
+                <th scope="col">Extracted Data</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {% for field,data in extracted_data.items %}
+              <tr>
+                <td>{{field}}</td>
+                <td>{{data}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          </div>
+
+        <br>
+        <br>
+    </section>
+</div>
+
+{% endblock %}

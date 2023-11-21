@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- header section -->
+<header class='bg-dark py-5'>
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="text-center text-white">
+      <h1 class="display-4 fw-bolder">Invoice Processing Automation</h1>
+      <p class='lead fw-normal text-white-50 mb-0'>Sign Up</p>
+    </div>
+  </div>
+</header>
+<br>
+<div class="container" style="width: 600px; padding: 50px; border: 10px solid #0f0c0c; margin-bottom: 25px; ">
+  <p><strong>Please fill in this form to Create an account.</strong></p>
+  <!-- <hr> -->
+  <br>
+  <form method='POST' action="{% url 'register' %}">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+    <br/>
+<!--   
+    <div class="form-group">
+
+      <input type="text" class="form-control" id="UserName" aria-describedby="emailHelp"
+        placeholder="Enter User ID">
+     
+    </div>
+    <br>
+    <div class="form-group">
+
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
+      placeholder="Enter email">
+
+    </div>
+    <br>
+    <div class="form-group">
+
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <br>
+    <div class="form-group">
+
+      <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password">
+    </div> 
+  -->
+ 
+    
+    
+    <br>
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+    <button type="submit" class="btn btn-secondary">Register</button>  
+    <br>
+    <br>
+    <div class="container signin">
+      <p>Already have an account? <a href="{% url 'login' %}">Sign in</a>.</p>
+    </div>
+  </form>
+</div>
+<br />
+{% endblock %}

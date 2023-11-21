@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content  %}
+
+<!-- header section -->
+<header class='bg-dark py-5'>
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Invoice Processing Automation</h1>
+            <p class='lead fw-normal text-white-50 mb-0'>Welcome to Invoice Automation.</p>
+        </div>
+    </div>
+</header>
+<div class="container d-flex justify-content-center align-items-center" style="height: 70vh;">
+    <img src="{% static 'Image_Processing_Automation_Grey.jpeg' %}" style="border: 1px solid #ddd;border-radius: 4px; padding: 5px; width: 100%; max-width: 800px;">
+</div>
+
+{% endblock  %}
