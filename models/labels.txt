@@ -1,4 +1,4 @@
 0 Restaurant_Bill
-1 Invoices
+1 Invoice
 2 Hotel_Stay_Bill
 3 Travel_Bill

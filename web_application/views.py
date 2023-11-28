@@ -165,7 +165,7 @@ def text_show_files(request):
         print("Selected Fields:", selected_fields)
         
         selected_questions = []
-        if class_name == "Invoices":
+        if class_name == "Invoice":
             # getting the selected questions for the respective fields
             for field in selected_fields:
                 #print(fields_questions_list_for_invoice[field])
@@ -187,7 +187,7 @@ def text_show_files(request):
         
         extracted_data = {}
         
-        if class_name == "Invoices":
+        if class_name == "Invoice":
             for field,question in selected_dict.items():
                 user_question = question
                 answer = str.upper(generate_result(user_question,image))

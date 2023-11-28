@@ -6,7 +6,7 @@ from .models import UploadedFile
 class UploadFileForm(forms.ModelForm):
     class Meta:
         model = UploadedFile
-        fields = ['title','file',]
+        fields = ['invoice_class','file',]
 
 
 class SignUpForm(UserCreationForm):
