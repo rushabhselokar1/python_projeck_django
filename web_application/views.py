@@ -214,3 +214,4 @@ def verify_predictions(request):
         print("Class Name: ",class_name)
         print("Confidence Score: ",confidence_score)
     return render(request,'verify_predictions.html', {'file': file,'class_name': class_name,'confidence_score': confidence_score,'img_file':img_file})
+# comment line
