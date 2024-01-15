@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\Admin\OneDrive\Desktop\shubham3\Invoice_Processing_Django_App\.venv_djengo
+set VIRTUAL_ENV=C:\Users\Admin\OneDrive\Desktop\shubham3\git_folder\pythonprojeckdjango\.venv_djengo
 
 if not defined PROMPT set PROMPT=$P$G
 
