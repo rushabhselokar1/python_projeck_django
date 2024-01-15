@@ -19,3 +19,4 @@ sudo service nginx restart
 # Restart:
 #systemctl restart gunicorn
 #sudo systemctl status nginx
+# Resatarf
