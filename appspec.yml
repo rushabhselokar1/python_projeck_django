@@ -16,8 +16,8 @@ hooks:
       - location: scripts/instance_os_dependencies.sh
         timeout: 300
         runas: ubuntu
-      - #location: scripts/python_dependencies.sh
-        #timeout: 300
+      - location: scripts/python_dependencies.sh
+        timeout: 300
         runas: ubuntu
       - location: scripts/gunicorn.sh
         timeout: 300
