@@ -10,7 +10,7 @@ WorkingDirectory=/home/ubuntu/pythonprojeckdjango
 ExecStart=/home/ubuntu/pythonprojeckdjango/venv/bin/gunicorn \
           --access-logfile - \
           --workers 3 \
-          --bind unix:/run/gunicorn.socket \
+          --bind unix:/run/gunicorn.sock \
           aip_web_project.wsgi:application
 [Install]
 WantedBy=multi-user.target

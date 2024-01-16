@@ -20,7 +20,7 @@ hooks:
         timeout: 900
         runas: ubuntu
       - location: scripts/gunicorn.sh
-        timeout: 900
+        timeout: 900  
         runas: ubuntu
       - location: scripts/nginx.sh
         timeout: 300
