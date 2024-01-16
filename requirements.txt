@@ -5,3 +5,4 @@ transformers
 torch
 sentencepiece
 django-cors-headers
+gunicorn

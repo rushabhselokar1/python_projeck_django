@@ -7,10 +7,6 @@ After=network.target
 User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/pythonprojeckdjango
-ExecStart=/home/ubuntu/pythonprojeckdjango/venv/bin/gunicorn \
-          --access-logfile - \
-          --workers 3 \
-          --bind unix:/run/gunicorn.sock \
-          aip_web_project.wsgi:application
+ExecStart=/home/ubuntu/env/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/ubuntu/pythonprojeckdjango/aip_web_project/aip_web_project.sock aip_web_project.wsgi:application
 [Install]
 WantedBy=multi-user.target

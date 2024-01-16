@@ -1,6 +1,6 @@
 #!/usr/bin/bash 
 
-sed -i 's/\[]/\["34.234.85.229"]/' /home/ubuntu/pythonprojeckdjango/aip_web_project/settings.py
+sed -i 's/\[]/\["34.201.149.132"]/' /home/ubuntu/pythonprojeckdjango/aip_web_project/settings.py
 
 python manage.py migrate 
 # python manage.py makemigrations     
